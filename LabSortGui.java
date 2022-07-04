@@ -19,6 +19,7 @@ public class LabSortGui extends JFrame implements ActionListener {
 	private JLabel finishLabel;
 	private JLabel parcentLabel;
 	private JProgressBar progressBar;
+	
 
 	/**
 	 * Launch the application.
@@ -122,8 +123,8 @@ public class LabSortGui extends JFrame implements ActionListener {
 		rightLabLabel.setText("<html>" +
 				list.get(bubbleSort.getPosition() + 1)[0] + "<br>" + list.get(bubbleSort.getPosition() + 1)[1]
 				+ "<html>");
-		int progress = bubbleSort.getProgress();
+		double progress = bubbleSort.getProgress();
 		parcentLabel.setText(progress + "%");
-		progressBar.setValue(progress);
+		progressBar.setValue((int)Math.floor(progress));
 	}
 }

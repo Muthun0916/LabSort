@@ -6,6 +6,7 @@ public class BubbleSort {
 	private int n;
 	private int k;
 	private int i = 0;
+	private int counter;
 	private boolean isProgress;
 
 	public BubbleSort(List<String[]> labs) {
@@ -13,6 +14,7 @@ public class BubbleSort {
 		this.n = labs.size();
 		this.k = 1;
 		this.isProgress = false;
+		this.counter = 0;
 	}
 
 	public boolean sort(boolean or) {
@@ -23,7 +25,6 @@ public class BubbleSort {
 	private void forInSort(boolean or) {
 		if (!isForFin()) {
 			forInforInSort(or);
-			k += 1;
 		}
 		if (isForFin())
 			isProgress = true;
@@ -35,8 +36,11 @@ public class BubbleSort {
 				swap(labs, i, i + 1);
 			i++;
 		}
-		if (isForInForFin())
+		if (isForInForFin()) {
 			resetI();
+			k++;
+		}
+		counter++;
 	}
 
 	private void swap(List<String[]> labs, int i, int j) {
@@ -67,8 +71,8 @@ public class BubbleSort {
 		this.i = 0;
 	}
 
-	public int getProgress() {
-		return k * 100 / n;
+	public double getProgress() {
+		return (counter * 100) / (n*n);
 	}
 
 	public List<String[]> getList() {
